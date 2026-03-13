@@ -7,7 +7,7 @@ const STORAGE_KEY = 'appointment_services';
 export default () => {
 	const [services, setServices] = useState<IService[]>([]);
 
-	// Load từ localStorage
+	
 	useEffect(() => {
 		const saved = localStorage.getItem(STORAGE_KEY);
 		if (saved) {

@@ -84,11 +84,11 @@ export default function ManageService() {
 			title: 'Hành động',
 			key: 'action',
 			render: (_: any, record: any) => (
-				<Space>
-					<Button type='primary' size='small' icon={<EditOutlined />} onClick={() => handleOpenModal(record)}>
+				<Space size='small' className='action-buttons'>
+					<Button type='link' icon={<EditOutlined />} onClick={() => handleOpenModal(record)}>
 						Sửa
 					</Button>
-					<Button danger size='small' icon={<DeleteOutlined />} onClick={() => handleDelete(record.id)}>
+					<Button type='text' danger icon={<DeleteOutlined />} onClick={() => handleDelete(record.id)}>
 						Xóa
 					</Button>
 				</Space>

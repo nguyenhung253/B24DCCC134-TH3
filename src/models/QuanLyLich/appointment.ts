@@ -7,7 +7,7 @@ const STORAGE_KEY = 'appointment_appointments';
 export default () => {
 	const [appointments, setAppointments] = useState<IAppointment[]>([]);
 
-	// Load từ localStorage
+	
 	useEffect(() => {
 		const saved = localStorage.getItem(STORAGE_KEY);
 		if (saved) {

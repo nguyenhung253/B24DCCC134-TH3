@@ -58,7 +58,8 @@ export default function BookingAppointment() {
 	};
 
 	return (
-		<Card title='Đặt lịch hẹn' style={{ marginTop: 20 }}>
+		<div className='card-section'>
+			<div className='card-title'> Đặt lịch hẹn mới</div>
 			<Form form={form} layout='vertical' onFinish={handleSubmit}>
 				<Row gutter={16}>
 					<Col xs={24} sm={12}>
@@ -126,11 +127,11 @@ export default function BookingAppointment() {
 				</Form.Item>
 
 				<Form.Item>
-					<Button type='primary' htmlType='submit' size='large'>
+					<Button type='primary' htmlType='submit' size='large' style={{ width: '100%' }}>
 						Đặt lịch
 					</Button>
 				</Form.Item>
 			</Form>
-		</Card>
+		</div>
 	);
 }

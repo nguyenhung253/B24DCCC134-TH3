@@ -126,7 +126,7 @@ export default function ManageAppointment() {
 			title: 'Hành động',
 			key: 'action',
 			render: (_: any, record: any) => (
-				<Space>
+				<Space size='small' className='action-buttons'>
 					{record.status === 'pending' && (
 						<Button
 							type='primary'
@@ -148,11 +148,11 @@ export default function ManageAppointment() {
 						</Button>
 					)}
 					{record.status === 'completed' && (
-						<Button type='default' size='small' onClick={() => handleReview(record)}>
+						<Button type='link' size='small' onClick={() => handleReview(record)}>
 							Đánh giá
 						</Button>
 					)}
-					<Button danger size='small' icon={<DeleteOutlined />} onClick={() => handleDelete(record.id)}>
+					<Button type='text' danger size='small' icon={<DeleteOutlined />} onClick={() => handleDelete(record.id)}>
 						Xóa
 					</Button>
 				</Space>

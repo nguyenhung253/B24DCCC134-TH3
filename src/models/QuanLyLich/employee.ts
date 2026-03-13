@@ -6,12 +6,12 @@ export interface IEmployee {
 	name: string;
 	phone: string;
 	email?: string;
-	services: string[]; // service ids
+	services: string[]; 
 	maxCustomersPerDay: number;
 	workSchedule: {
 		dayOfWeek: number[]; // 0-6 (0=CN, 1=T2, ...)
-		startTime: string; // HH:mm
-		endTime: string; // HH:mm
+		startTime: string; 
+		endTime: string; 
 	};
 	rating: number;
 	totalReviews: number;
@@ -22,7 +22,7 @@ const STORAGE_KEY = 'appointment_employees';
 export default () => {
 	const [employees, setEmployees] = useState<IEmployee[]>([]);
 
-	// Load từ localStorage
+	
 	useEffect(() => {
 		const saved = localStorage.getItem(STORAGE_KEY);
 		if (saved) {
