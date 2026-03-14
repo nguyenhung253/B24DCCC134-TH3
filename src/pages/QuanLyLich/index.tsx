@@ -1,8 +1,18 @@
 import { Tabs, Button } from 'antd';
-import { UserOutlined, FileTextOutlined, BarChartOutlined, ReloadOutlined } from '@ant-design/icons';
+import {
+	UserOutlined,
+	FileTextOutlined,
+	BarChartOutlined,
+	ReloadOutlined,
+	CalendarOutlined,
+} from '@ant-design/icons';
+
+import BookingAppointment from './components/BookingAppointment';
+import ManageAppointment from './components/ManageAppointment';
 import ManageEmployee from './components/ManageEmployee';
 import ManageService from './components/ManageService';
 import Statistics from './components/Statistics';
+
 import './styles.less';
 
 const { TabPane } = Tabs;
@@ -26,17 +36,42 @@ export default function QuanLyLichPage() {
 						<img src='/logo.png' alt='PTIT Logo' className='ptit-logo' />
 						<div className='header-text'>
 							<h1 className='page-title'>Hệ thống quản lý lịch hẹn dịch vụ</h1>
-							<p className='page-subtitle'></p>
 						</div>
 					</div>
+
 					<Button icon={<ReloadOutlined />} onClick={handleResetData} className='reset-btn'>
 						Xóa dữ liệu
 					</Button>
 				</div>
 
 				<Tabs defaultActiveKey='1' className='quanlylich-tabs'>
+
 					<TabPane
 						key='1'
+						tab={
+							<span className='tab-label'>
+								<CalendarOutlined />
+								Đặt lịch
+							</span>
+						}
+					>
+						<BookingAppointment />
+					</TabPane>
+
+					<TabPane
+						key='2'
+						tab={
+							<span className='tab-label'>
+								<CalendarOutlined />
+								Quản lý lịch
+							</span>
+						}
+					>
+						<ManageAppointment />
+					</TabPane>
+
+					<TabPane
+						key='3'
 						tab={
 							<span className='tab-label'>
 								<UserOutlined />
@@ -46,8 +81,9 @@ export default function QuanLyLichPage() {
 					>
 						<ManageEmployee />
 					</TabPane>
+
 					<TabPane
-						key='2'
+						key='4'
 						tab={
 							<span className='tab-label'>
 								<FileTextOutlined />
@@ -57,8 +93,9 @@ export default function QuanLyLichPage() {
 					>
 						<ManageService />
 					</TabPane>
+
 					<TabPane
-						key='3'
+						key='5'
 						tab={
 							<span className='tab-label'>
 								<BarChartOutlined />
@@ -68,6 +105,7 @@ export default function QuanLyLichPage() {
 					>
 						<Statistics />
 					</TabPane>
+
 				</Tabs>
 			</div>
 		</div>
