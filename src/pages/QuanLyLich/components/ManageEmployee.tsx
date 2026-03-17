@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useModel } from 'umi';
 import { Table, Button, Modal, Form, Input, Select, TimePicker, Checkbox, Space, Row, Col, Rate } from 'antd';
 import { DeleteOutlined, EditOutlined, PlusOutlined } from '@ant-design/icons';
-import dayjs from 'dayjs';
+import moment from 'moment';
 import { reviewService } from '@/services/QuanLyLich/review';
 
 export default function ManageEmployee() {
@@ -27,8 +27,8 @@ export default function ManageEmployee() {
 				services: employee.services,
 				maxCustomersPerDay: employee.maxCustomersPerDay,
 				dayOfWeek: employee.workSchedule.dayOfWeek,
-				startTime: dayjs(employee.workSchedule.startTime, 'HH:mm'),
-				endTime: dayjs(employee.workSchedule.endTime, 'HH:mm'),
+				startTime: moment(employee.workSchedule.startTime, 'HH:mm'),
+				endTime: moment(employee.workSchedule.endTime, 'HH:mm'),
 			});
 		} else {
 			setIsEditing(false);

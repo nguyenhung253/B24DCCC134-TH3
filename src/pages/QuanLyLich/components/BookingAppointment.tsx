@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useModel } from 'umi';
-import { Form, Input, Button, Select, DatePicker, TimePicker, Card, Row, Col, message } from 'antd';
+import { Form, Input, Button, Select, DatePicker, TimePicker, Row, Col, message } from 'antd';
 import moment from 'moment';
 import { appointmentService } from '@/services/QuanLyLich/appointment';
 
