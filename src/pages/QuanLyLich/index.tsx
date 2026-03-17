@@ -1,5 +1,5 @@
-import { Tabs, Button } from 'antd';
-import { UserOutlined, FileTextOutlined, BarChartOutlined, ReloadOutlined, CalendarOutlined } from '@ant-design/icons';
+import { Tabs } from 'antd';
+import { UserOutlined, FileTextOutlined, BarChartOutlined, CalendarOutlined } from '@ant-design/icons';
 
 import BookingAppointment from './components/BookingAppointment';
 import ManageAppointment from './components/ManageAppointment';
@@ -12,16 +12,6 @@ import './styles.less';
 const { TabPane } = Tabs;
 
 export default function QuanLyLichPage() {
-	const handleResetData = () => {
-		if (window.confirm('Bạn có chắc muốn xóa tất cả dữ liệu? Hành động này không thể hoàn tác.')) {
-			localStorage.removeItem('appointment_appointments');
-			localStorage.removeItem('appointment_employees');
-			localStorage.removeItem('appointment_services');
-			localStorage.removeItem('appointment_reviews');
-			window.location.reload();
-		}
-	};
-
 	return (
 		<div className='quanlylich-container'>
 			<div className='quanlylich-card'>
@@ -32,10 +22,6 @@ export default function QuanLyLichPage() {
 							<h1 className='page-title'>Hệ thống quản lý lịch hẹn dịch vụ</h1>
 						</div>
 					</div>
-
-					<Button icon={<ReloadOutlined />} onClick={handleResetData} className='reset-btn'>
-						Xóa dữ liệu
-					</Button>
 				</div>
 
 				<Tabs defaultActiveKey='1' className='quanlylich-tabs'>
