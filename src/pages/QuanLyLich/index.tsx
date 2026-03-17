@@ -1,11 +1,5 @@
 import { Tabs, Button } from 'antd';
-import {
-	UserOutlined,
-	FileTextOutlined,
-	BarChartOutlined,
-	ReloadOutlined,
-	CalendarOutlined,
-} from '@ant-design/icons';
+import { UserOutlined, FileTextOutlined, BarChartOutlined, ReloadOutlined, CalendarOutlined } from '@ant-design/icons';
 
 import BookingAppointment from './components/BookingAppointment';
 import ManageAppointment from './components/ManageAppointment';
@@ -45,7 +39,6 @@ export default function QuanLyLichPage() {
 				</div>
 
 				<Tabs defaultActiveKey='1' className='quanlylich-tabs'>
-
 					<TabPane
 						key='1'
 						tab={
@@ -63,7 +56,7 @@ export default function QuanLyLichPage() {
 						tab={
 							<span className='tab-label'>
 								<CalendarOutlined />
-								Quản lý lịch
+								Lịch hẹn
 							</span>
 						}
 					>
@@ -75,7 +68,7 @@ export default function QuanLyLichPage() {
 						tab={
 							<span className='tab-label'>
 								<UserOutlined />
-								Quản lý nhân viên
+								Nhân viên
 							</span>
 						}
 					>
@@ -87,7 +80,7 @@ export default function QuanLyLichPage() {
 						tab={
 							<span className='tab-label'>
 								<FileTextOutlined />
-								Quản lý dịch vụ
+								Dịch vụ
 							</span>
 						}
 					>
@@ -105,7 +98,6 @@ export default function QuanLyLichPage() {
 					>
 						<Statistics />
 					</TabPane>
-
 				</Tabs>
 			</div>
 		</div>

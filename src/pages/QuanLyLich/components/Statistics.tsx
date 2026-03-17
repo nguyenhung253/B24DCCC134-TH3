@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useModel } from 'umi';
 import { Card, Row, Col, DatePicker, Button, Table, Statistic, Empty } from 'antd';
 import { BarChartOutlined, DollarOutlined, CalendarOutlined } from '@ant-design/icons';
-import dayjs from 'dayjs';
+import moment from 'moment';
 
 export default function Statistics() {
 	const appointmentModel = useModel('QuanLyLich.appointment');
 	const serviceModel = useModel('QuanLyLich.service');
 	const employeeModel = useModel('QuanLyLich.employee');
 	const statisticsModel = useModel('QuanLyLich.statistics');
-	const [startDate, setStartDate] = useState(dayjs().startOf('month').format('YYYY-MM-DD'));
-	const [endDate, setEndDate] = useState(dayjs().format('YYYY-MM-DD'));
+	const [startDate, setStartDate] = useState(moment().startOf('month').format('YYYY-MM-DD'));
+	const [endDate, setEndDate] = useState(moment().format('YYYY-MM-DD'));
 
 	useEffect(() => {
 		statisticsModel.calculateStatistics(appointmentModel.appointments, serviceModel.services, startDate, endDate);
@@ -34,11 +34,13 @@ export default function Statistics() {
 			title: 'Số lượng',
 			dataIndex: 'count',
 			key: 'count',
+			align: 'center' as const,
 		},
 		{
 			title: 'Doanh thu (đ)',
 			dataIndex: 'revenue',
 			key: 'revenue',
+			align: 'center' as const,
 			render: (revenue: number) => revenue.toLocaleString(),
 		},
 	];
@@ -57,11 +59,13 @@ export default function Statistics() {
 			title: 'Số lịch',
 			dataIndex: 'count',
 			key: 'count',
+			align: 'center' as const,
 		},
 		{
 			title: 'Doanh thu (đ)',
 			dataIndex: 'revenue',
 			key: 'revenue',
+			align: 'center' as const,
 			render: (revenue: number) => revenue.toLocaleString(),
 		},
 	];
@@ -84,7 +88,7 @@ export default function Statistics() {
 				<Row gutter={16} style={{ marginBottom: 20 }}>
 					<Col xs={24} sm={8}>
 						<DatePicker
-							value={dayjs(startDate)}
+							value={moment(startDate)}
 							onChange={(date) => setStartDate(date?.format('YYYY-MM-DD') || '')}
 							style={{ width: '100%' }}
 							placeholder='Từ ngày'
@@ -92,7 +96,7 @@ export default function Statistics() {
 					</Col>
 					<Col xs={24} sm={8}>
 						<DatePicker
-							value={dayjs(endDate)}
+							value={moment(endDate)}
 							onChange={(date) => setEndDate(date?.format('YYYY-MM-DD') || '')}
 							style={{ width: '100%' }}
 							placeholder='Đến ngày'
